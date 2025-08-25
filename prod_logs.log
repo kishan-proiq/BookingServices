@@ -1,0 +1,847 @@
+2025-08-25T15:17:06.%fZ [INFO] BookingServicesAPI - Application startup initiated
+2025-08-25T15:17:06.%fZ [INFO] BookingServicesAPI - DataGen: starting
+2025-08-25T15:17:07.%fZ [INFO] BookingServicesAPI - DataGen: users generated - count=1000
+2025-08-25T15:17:07.%fZ [INFO] BookingServicesAPI - DataGen: services generated - count=500
+2025-08-25T15:17:09.%fZ [INFO] BookingServicesAPI - DataGen: bookings generated - count=5000
+2025-08-25T15:17:09.%fZ [INFO] BookingServicesAPI - DataGen: completed successfully
+2025-08-25T15:17:09.%fZ [INFO] BookingServicesAPI - DataGen: totals users=1000 services=500 bookings=5000
+2025-08-25T15:17:10.%fZ [INFO] BookingServicesAPI - Application startup completed
+2025-08-25T15:18:04.%fZ [INFO] BookingServicesAPI - HTTPRequest - GET /docs - 200 - 0ms
+2025-08-25T15:18:04.%fZ [INFO] BookingServicesAPI - HTTPRequest - GET /openapi.json - 200 - 15ms
+2025-08-25T15:19:02.%fZ [INFO] BookingServicesAPI - HTTPRequest - GET /users/ - 200 - 6ms
+2025-08-25T15:20:10.%fZ [INFO] BookingServicesAPI - HTTPRequest - GET /users/99 - 200 - 2ms
+2025-08-25T15:20:22.%fZ [INFO] BookingServicesAPI - HTTPRequest - GET /users/100 - 200 - 1ms
+2025-08-25T15:20:26.%fZ [INFO] BookingServicesAPI - HTTPRequest - GET /users/101 - 200 - 2ms
+2025-08-25T15:20:31.%fZ [INFO] BookingServicesAPI - HTTPRequest - GET /users/102 - 200 - 1ms
+2025-08-25T15:20:38.%fZ [INFO] BookingServicesAPI - HTTPRequest - GET /users/68 - 200 - 2ms
+2025-08-25T15:20:54.%fZ [INFO] BookingServicesAPI - HTTPRequest - GET /users/112 - 200 - 2ms
+2025-08-25T15:21:28.%fZ [INFO] BookingServicesAPI - HTTPRequest - GET /users/150 - 200 - 2ms
+2025-08-25T15:21:39.%fZ [ERROR] BookingServicesAPI - LogicError - User not found - id=99999999
+2025-08-25T15:21:39.%fZ [INFO] BookingServicesAPI - HTTPRequest - GET /users/99999999 - 404 - 2ms
+2025-08-25T15:21:59.%fZ [INFO] BookingServicesAPI - HTTPRequest - GET /users/998 - 200 - 1ms
+2025-08-25T15:22:08.%fZ [ERROR] BookingServicesAPI - LogicError - User not found - id=1100
+2025-08-25T15:22:08.%fZ [INFO] BookingServicesAPI - HTTPRequest - GET /users/1100 - 404 - 2ms
+2025-08-25T15:22:22.%fZ [ERROR] BookingServicesAPI - LogicError - User not found - id=1011
+2025-08-25T15:22:22.%fZ [INFO] BookingServicesAPI - HTTPRequest - GET /users/1011 - 404 - 2ms
+2025-08-25T15:22:35.%fZ [INFO] BookingServicesAPI - HTTPRequest - GET /users/1000 - 200 - 2ms
+2025-08-25T15:23:31.%fZ [INFO] BookingServicesAPI - DB: user updated - id=998
+2025-08-25T15:23:31.%fZ [INFO] BookingServicesAPI - User updated - id=998
+2025-08-25T15:23:31.%fZ [INFO] BookingServicesAPI - HTTPRequest - PUT /users/998 - 200 - 21ms
+2025-08-25T15:23:58.%fZ [INFO] BookingServicesAPI - DB: user updated - id=999
+2025-08-25T15:23:58.%fZ [INFO] BookingServicesAPI - User updated - id=999
+2025-08-25T15:23:58.%fZ [INFO] BookingServicesAPI - HTTPRequest - PUT /users/999 - 200 - 17ms
+2025-08-25T15:24:09.%fZ [ERROR] BookingServicesAPI - LogicError - User not found for delete - id=10000
+2025-08-25T15:24:09.%fZ [INFO] BookingServicesAPI - HTTPRequest - DELETE /users/10000 - 404 - 2ms
+2025-08-25T15:24:15.%fZ [ERROR] BookingServicesAPI - APIError - Unhandled exception - DELETE /users/100 - 13ms
+Traceback (most recent call last):
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1938, in _exec_single_context
+    self.dialect.do_executemany(
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/engine/default.py", line 919, in do_executemany
+    cursor.executemany(statement, parameters)
+sqlite3.IntegrityError: NOT NULL constraint failed: bookings.user_id
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/mobcoder/projects/others/codebases/BookingServices/main.py", line 42, in log_requests
+    response = await call_next(request)
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/starlette/middleware/base.py", line 84, in call_next
+    raise app_exc
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/starlette/middleware/base.py", line 70, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/starlette/middleware/cors.py", line 91, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/starlette/middleware/cors.py", line 146, in simple_response
+    await self.app(scope, receive, send)
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 79, in __call__
+    raise exc
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 68, in __call__
+    await self.app(scope, receive, sender)
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 20, in __call__
+    raise e
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 17, in __call__
+    await self.app(scope, receive, send)
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/starlette/routing.py", line 718, in __call__
+    await route.handle(scope, receive, send)
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/starlette/routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/starlette/routing.py", line 66, in app
+    response = await func(request)
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/fastapi/routing.py", line 274, in app
+    raw_response = await run_endpoint_function(
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/fastapi/routing.py", line 191, in run_endpoint_function
+    return await dependant.call(**values)
+  File "/home/mobcoder/projects/others/codebases/BookingServices/main.py", line 134, in delete_user
+    success = await user_crud.delete_user(db=db, user_id=user_id)
+  File "/home/mobcoder/projects/others/codebases/BookingServices/crud/user_crud.py", line 63, in delete_user
+    db.commit()
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 1969, in commit
+    trans.commit(_to_root=True)
+  File "<string>", line 2, in commit
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/orm/state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 1256, in commit
+    self._prepare_impl()
+  File "<string>", line 2, in _prepare_impl
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/orm/state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 1231, in _prepare_impl
+    self.session.flush()
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 4312, in flush
+    self._flush(objects)
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 4447, in _flush
+    with util.safe_reraise():
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/util/langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 4408, in _flush
+    flush_context.execute()
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/orm/unitofwork.py", line 466, in execute
+    rec.execute(self)
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/orm/unitofwork.py", line 642, in execute
+    util.preloaded.orm_persistence.save_obj(
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/orm/persistence.py", line 85, in save_obj
+    _emit_update_statements(
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/orm/persistence.py", line 909, in _emit_update_statements
+    c = connection.execute(
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1416, in execute
+    return meth(
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/sql/elements.py", line 516, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1639, in _execute_clauseelement
+    ret = self._execute_context(
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1848, in _execute_context
+    return self._exec_single_context(
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1988, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 2343, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1938, in _exec_single_context
+    self.dialect.do_executemany(
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/engine/default.py", line 919, in do_executemany
+    cursor.executemany(statement, parameters)
+sqlalchemy.exc.IntegrityError: (sqlite3.IntegrityError) NOT NULL constraint failed: bookings.user_id
+[SQL: UPDATE bookings SET user_id=?, updated_at=CURRENT_TIMESTAMP WHERE bookings.id = ?]
+[parameters: [(None, 267), (None, 1274), (None, 1311), (None, 2906), (None, 3820), (None, 4990)]]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2025-08-25T15:24:23.%fZ [ERROR] BookingServicesAPI - LogicError - User not found for delete - id=1111000
+2025-08-25T15:24:23.%fZ [INFO] BookingServicesAPI - HTTPRequest - DELETE /users/1111000 - 404 - 2ms
+2025-08-25T15:24:40.%fZ [INFO] BookingServicesAPI - DB: service created - id=501 name=string
+2025-08-25T15:24:40.%fZ [INFO] BookingServicesAPI - Service created - id=501 name=string
+2025-08-25T15:24:40.%fZ [INFO] BookingServicesAPI - HTTPRequest - POST /services/ - 201 - 58ms
+2025-08-25T15:25:15.%fZ [INFO] BookingServicesAPI - HTTPRequest - GET /services/ - 200 - 22ms
+2025-08-25T15:25:35.%fZ [INFO] BookingServicesAPI - HTTPRequest - GET /services/ - 200 - 5ms
+2025-08-25T15:26:11.%fZ [ERROR] BookingServicesAPI - LogicError - User not found (booking) - id=0
+2025-08-25T15:26:11.%fZ [INFO] BookingServicesAPI - HTTPRequest - POST /bookings/ - 404 - 2ms
+2025-08-25T15:26:21.%fZ [ERROR] BookingServicesAPI - LogicError - User not found (booking) - id=0
+2025-08-25T15:26:21.%fZ [INFO] BookingServicesAPI - HTTPRequest - POST /bookings/ - 404 - 2ms
+2025-08-25T15:26:35.%fZ [INFO] BookingServicesAPI - Stats requested - bookings
+2025-08-25T15:26:35.%fZ [INFO] BookingServicesAPI - HTTPRequest - GET /stats/bookings - 200 - 33ms
+2025-08-25T15:26:43.%fZ [INFO] BookingServicesAPI - Stats requested - bookings
+2025-08-25T15:26:43.%fZ [INFO] BookingServicesAPI - HTTPRequest - GET /stats/bookings - 200 - 26ms
+2025-08-25T15:26:53.%fZ [INFO] BookingServicesAPI - Stats requested - services
+2025-08-25T15:26:53.%fZ [INFO] BookingServicesAPI - HTTPRequest - GET /stats/services - 200 - 14ms
+2025-08-25T15:27:08.%fZ [INFO] BookingServicesAPI - Health check OK
+2025-08-25T15:27:08.%fZ [INFO] BookingServicesAPI - HTTPRequest - GET /health - 200 - 0ms
+2025-08-25T15:29:17.%fZ [INFO] BookingServicesAPI - Health check OK
+2025-08-25T15:29:17.%fZ [INFO] BookingServicesAPI - HTTPRequest - GET /health - 200 - 0ms
+2025-08-25T15:29:19.%fZ [INFO] BookingServicesAPI - Health check OK
+2025-08-25T15:29:19.%fZ [INFO] BookingServicesAPI - HTTPRequest - GET /health - 200 - 0ms
+2025-08-25T15:29:19.%fZ [INFO] BookingServicesAPI - Health check OK
+2025-08-25T15:29:19.%fZ [INFO] BookingServicesAPI - HTTPRequest - GET /health - 200 - 0ms
+2025-08-25T15:29:20.%fZ [INFO] BookingServicesAPI - Health check OK
+2025-08-25T15:29:20.%fZ [INFO] BookingServicesAPI - HTTPRequest - GET /health - 200 - 0ms
+2025-08-25T15:29:20.%fZ [INFO] BookingServicesAPI - Health check OK
+2025-08-25T15:29:20.%fZ [INFO] BookingServicesAPI - HTTPRequest - GET /health - 200 - 0ms
+2025-08-25T15:29:21.%fZ [INFO] BookingServicesAPI - Health check OK
+2025-08-25T15:29:21.%fZ [INFO] BookingServicesAPI - HTTPRequest - GET /health - 200 - 0ms
+2025-08-25T15:41:30.%fZ [ERROR] BookingServicesAPI - LogicError - User not found for delete - id=1111
+2025-08-25T15:41:30.%fZ [INFO] BookingServicesAPI - HTTPRequest - DELETE /users/1111 - 404 - 2ms
+2025-08-25T15:41:37.%fZ [ERROR] BookingServicesAPI - LogicError - User not found for delete - id=1010
+2025-08-25T15:41:37.%fZ [INFO] BookingServicesAPI - HTTPRequest - DELETE /users/1010 - 404 - 2ms
+2025-08-25T15:41:41.%fZ [ERROR] BookingServicesAPI - LogicError - User not found for delete - id=1089
+2025-08-25T15:41:41.%fZ [INFO] BookingServicesAPI - HTTPRequest - DELETE /users/1089 - 404 - 1ms
+2025-08-25T15:41:46.%fZ [ERROR] BookingServicesAPI - LogicError - User not found for delete - id=891089
+2025-08-25T15:41:46.%fZ [INFO] BookingServicesAPI - HTTPRequest - DELETE /users/891089 - 404 - 3ms
+2025-08-25T15:41:53.%fZ [ERROR] BookingServicesAPI - LogicError - User not found for delete - id=8989
+2025-08-25T15:41:53.%fZ [INFO] BookingServicesAPI - HTTPRequest - DELETE /users/8989 - 404 - 2ms
+2025-08-25T15:41:58.%fZ [ERROR] BookingServicesAPI - LogicError - User not found for delete - id=1001
+2025-08-25T15:41:58.%fZ [INFO] BookingServicesAPI - HTTPRequest - DELETE /users/1001 - 404 - 2ms
+2025-08-25T15:42:02.%fZ [ERROR] BookingServicesAPI - APIError - Unhandled exception - DELETE /users/1000 - 4ms
+Traceback (most recent call last):
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1938, in _exec_single_context
+    self.dialect.do_executemany(
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/engine/default.py", line 919, in do_executemany
+    cursor.executemany(statement, parameters)
+sqlite3.IntegrityError: NOT NULL constraint failed: bookings.user_id
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/mobcoder/projects/others/codebases/BookingServices/main.py", line 42, in log_requests
+    response = await call_next(request)
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/starlette/middleware/base.py", line 84, in call_next
+    raise app_exc
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/starlette/middleware/base.py", line 70, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/starlette/middleware/cors.py", line 91, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/starlette/middleware/cors.py", line 146, in simple_response
+    await self.app(scope, receive, send)
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 79, in __call__
+    raise exc
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 68, in __call__
+    await self.app(scope, receive, sender)
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 20, in __call__
+    raise e
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 17, in __call__
+    await self.app(scope, receive, send)
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/starlette/routing.py", line 718, in __call__
+    await route.handle(scope, receive, send)
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/starlette/routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/starlette/routing.py", line 66, in app
+    response = await func(request)
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/fastapi/routing.py", line 274, in app
+    raw_response = await run_endpoint_function(
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/fastapi/routing.py", line 191, in run_endpoint_function
+    return await dependant.call(**values)
+  File "/home/mobcoder/projects/others/codebases/BookingServices/main.py", line 134, in delete_user
+    success = await user_crud.delete_user(db=db, user_id=user_id)
+  File "/home/mobcoder/projects/others/codebases/BookingServices/crud/user_crud.py", line 63, in delete_user
+    db.commit()
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 1969, in commit
+    trans.commit(_to_root=True)
+  File "<string>", line 2, in commit
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/orm/state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 1256, in commit
+    self._prepare_impl()
+  File "<string>", line 2, in _prepare_impl
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/orm/state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 1231, in _prepare_impl
+    self.session.flush()
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 4312, in flush
+    self._flush(objects)
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 4447, in _flush
+    with util.safe_reraise():
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/util/langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 4408, in _flush
+    flush_context.execute()
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/orm/unitofwork.py", line 466, in execute
+    rec.execute(self)
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/orm/unitofwork.py", line 642, in execute
+    util.preloaded.orm_persistence.save_obj(
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/orm/persistence.py", line 85, in save_obj
+    _emit_update_statements(
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/orm/persistence.py", line 909, in _emit_update_statements
+    c = connection.execute(
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1416, in execute
+    return meth(
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/sql/elements.py", line 516, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1639, in _execute_clauseelement
+    ret = self._execute_context(
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1848, in _execute_context
+    return self._exec_single_context(
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1988, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 2343, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1938, in _exec_single_context
+    self.dialect.do_executemany(
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/engine/default.py", line 919, in do_executemany
+    cursor.executemany(statement, parameters)
+sqlalchemy.exc.IntegrityError: (sqlite3.IntegrityError) NOT NULL constraint failed: bookings.user_id
+[SQL: UPDATE bookings SET user_id=?, updated_at=CURRENT_TIMESTAMP WHERE bookings.id = ?]
+[parameters: [(None, 190), (None, 2093), (None, 2601), (None, 2987), (None, 3745), (None, 4145)]]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2025-08-25T15:42:10.%fZ [ERROR] BookingServicesAPI - APIError - Unhandled exception - DELETE /users/100 - 3ms
+Traceback (most recent call last):
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1938, in _exec_single_context
+    self.dialect.do_executemany(
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/engine/default.py", line 919, in do_executemany
+    cursor.executemany(statement, parameters)
+sqlite3.IntegrityError: NOT NULL constraint failed: bookings.user_id
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/mobcoder/projects/others/codebases/BookingServices/main.py", line 42, in log_requests
+    response = await call_next(request)
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/starlette/middleware/base.py", line 84, in call_next
+    raise app_exc
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/starlette/middleware/base.py", line 70, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/starlette/middleware/cors.py", line 91, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/starlette/middleware/cors.py", line 146, in simple_response
+    await self.app(scope, receive, send)
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 79, in __call__
+    raise exc
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 68, in __call__
+    await self.app(scope, receive, sender)
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 20, in __call__
+    raise e
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 17, in __call__
+    await self.app(scope, receive, send)
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/starlette/routing.py", line 718, in __call__
+    await route.handle(scope, receive, send)
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/starlette/routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/starlette/routing.py", line 66, in app
+    response = await func(request)
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/fastapi/routing.py", line 274, in app
+    raw_response = await run_endpoint_function(
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/fastapi/routing.py", line 191, in run_endpoint_function
+    return await dependant.call(**values)
+  File "/home/mobcoder/projects/others/codebases/BookingServices/main.py", line 134, in delete_user
+    success = await user_crud.delete_user(db=db, user_id=user_id)
+  File "/home/mobcoder/projects/others/codebases/BookingServices/crud/user_crud.py", line 63, in delete_user
+    db.commit()
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 1969, in commit
+    trans.commit(_to_root=True)
+  File "<string>", line 2, in commit
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/orm/state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 1256, in commit
+    self._prepare_impl()
+  File "<string>", line 2, in _prepare_impl
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/orm/state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 1231, in _prepare_impl
+    self.session.flush()
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 4312, in flush
+    self._flush(objects)
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 4447, in _flush
+    with util.safe_reraise():
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/util/langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 4408, in _flush
+    flush_context.execute()
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/orm/unitofwork.py", line 466, in execute
+    rec.execute(self)
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/orm/unitofwork.py", line 642, in execute
+    util.preloaded.orm_persistence.save_obj(
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/orm/persistence.py", line 85, in save_obj
+    _emit_update_statements(
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/orm/persistence.py", line 909, in _emit_update_statements
+    c = connection.execute(
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1416, in execute
+    return meth(
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/sql/elements.py", line 516, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1639, in _execute_clauseelement
+    ret = self._execute_context(
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1848, in _execute_context
+    return self._exec_single_context(
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1988, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 2343, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1938, in _exec_single_context
+    self.dialect.do_executemany(
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/engine/default.py", line 919, in do_executemany
+    cursor.executemany(statement, parameters)
+sqlalchemy.exc.IntegrityError: (sqlite3.IntegrityError) NOT NULL constraint failed: bookings.user_id
+[SQL: UPDATE bookings SET user_id=?, updated_at=CURRENT_TIMESTAMP WHERE bookings.id = ?]
+[parameters: [(None, 267), (None, 1274), (None, 1311), (None, 2906), (None, 3820), (None, 4990)]]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2025-08-25T15:42:41.%fZ [ERROR] BookingServicesAPI - APIError - Unhandled exception - DELETE /users/100 - 4ms
+Traceback (most recent call last):
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1938, in _exec_single_context
+    self.dialect.do_executemany(
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/engine/default.py", line 919, in do_executemany
+    cursor.executemany(statement, parameters)
+sqlite3.IntegrityError: NOT NULL constraint failed: bookings.user_id
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/mobcoder/projects/others/codebases/BookingServices/main.py", line 42, in log_requests
+    response = await call_next(request)
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/starlette/middleware/base.py", line 84, in call_next
+    raise app_exc
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/starlette/middleware/base.py", line 70, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/starlette/middleware/cors.py", line 91, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/starlette/middleware/cors.py", line 146, in simple_response
+    await self.app(scope, receive, send)
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 79, in __call__
+    raise exc
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 68, in __call__
+    await self.app(scope, receive, sender)
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 20, in __call__
+    raise e
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 17, in __call__
+    await self.app(scope, receive, send)
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/starlette/routing.py", line 718, in __call__
+    await route.handle(scope, receive, send)
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/starlette/routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/starlette/routing.py", line 66, in app
+    response = await func(request)
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/fastapi/routing.py", line 274, in app
+    raw_response = await run_endpoint_function(
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/fastapi/routing.py", line 191, in run_endpoint_function
+    return await dependant.call(**values)
+  File "/home/mobcoder/projects/others/codebases/BookingServices/main.py", line 134, in delete_user
+    success = await user_crud.delete_user(db=db, user_id=user_id)
+  File "/home/mobcoder/projects/others/codebases/BookingServices/crud/user_crud.py", line 63, in delete_user
+    db.commit()
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 1969, in commit
+    trans.commit(_to_root=True)
+  File "<string>", line 2, in commit
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/orm/state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 1256, in commit
+    self._prepare_impl()
+  File "<string>", line 2, in _prepare_impl
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/orm/state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 1231, in _prepare_impl
+    self.session.flush()
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 4312, in flush
+    self._flush(objects)
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 4447, in _flush
+    with util.safe_reraise():
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/util/langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 4408, in _flush
+    flush_context.execute()
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/orm/unitofwork.py", line 466, in execute
+    rec.execute(self)
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/orm/unitofwork.py", line 642, in execute
+    util.preloaded.orm_persistence.save_obj(
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/orm/persistence.py", line 85, in save_obj
+    _emit_update_statements(
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/orm/persistence.py", line 909, in _emit_update_statements
+    c = connection.execute(
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1416, in execute
+    return meth(
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/sql/elements.py", line 516, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1639, in _execute_clauseelement
+    ret = self._execute_context(
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1848, in _execute_context
+    return self._exec_single_context(
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1988, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 2343, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1938, in _exec_single_context
+    self.dialect.do_executemany(
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/engine/default.py", line 919, in do_executemany
+    cursor.executemany(statement, parameters)
+sqlalchemy.exc.IntegrityError: (sqlite3.IntegrityError) NOT NULL constraint failed: bookings.user_id
+[SQL: UPDATE bookings SET user_id=?, updated_at=CURRENT_TIMESTAMP WHERE bookings.id = ?]
+[parameters: [(None, 267), (None, 1274), (None, 1311), (None, 2906), (None, 3820), (None, 4990)]]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2025-08-25T15:43:01.%fZ [ERROR] BookingServicesAPI - LogicError - User not found - id=1001
+2025-08-25T15:43:01.%fZ [INFO] BookingServicesAPI - HTTPRequest - GET /users/1001 - 404 - 3ms
+2025-08-25T15:43:08.%fZ [ERROR] BookingServicesAPI - LogicError - User not found - id=1002
+2025-08-25T15:43:08.%fZ [INFO] BookingServicesAPI - HTTPRequest - GET /users/1002 - 404 - 2ms
+2025-08-25T15:43:12.%fZ [ERROR] BookingServicesAPI - LogicError - User not found - id=1004
+2025-08-25T15:43:12.%fZ [INFO] BookingServicesAPI - HTTPRequest - GET /users/1004 - 404 - 2ms
+2025-08-25T15:43:15.%fZ [ERROR] BookingServicesAPI - LogicError - User not found - id=1003
+2025-08-25T15:43:15.%fZ [INFO] BookingServicesAPI - HTTPRequest - GET /users/1003 - 404 - 2ms
+2025-08-25T15:43:19.%fZ [INFO] BookingServicesAPI - HTTPRequest - GET /users/100 - 200 - 2ms
+2025-08-25T15:43:24.%fZ [INFO] BookingServicesAPI - HTTPRequest - GET /users/1000 - 200 - 2ms
+2025-08-25T15:43:28.%fZ [ERROR] BookingServicesAPI - LogicError - User not found - id=1167
+2025-08-25T15:43:28.%fZ [INFO] BookingServicesAPI - HTTPRequest - GET /users/1167 - 404 - 2ms
+2025-08-25T15:43:34.%fZ [ERROR] BookingServicesAPI - LogicError - User not found - id=1167
+2025-08-25T15:43:34.%fZ [INFO] BookingServicesAPI - HTTPRequest - GET /users/1167 - 404 - 1ms
+2025-08-25T15:43:38.%fZ [ERROR] BookingServicesAPI - LogicError - User not found - id=11672
+2025-08-25T15:43:38.%fZ [INFO] BookingServicesAPI - HTTPRequest - GET /users/11672 - 404 - 2ms
+2025-08-25T15:44:20.%fZ [INFO] BookingServicesAPI - Health check OK
+2025-08-25T15:44:20.%fZ [INFO] BookingServicesAPI - HTTPRequest - GET /health - 200 - 0ms
+2025-08-25T15:45:31.%fZ [INFO] BookingServicesAPI - DB: service created - id=502 name=string
+2025-08-25T15:45:31.%fZ [INFO] BookingServicesAPI - Service created - id=502 name=string
+2025-08-25T15:45:31.%fZ [INFO] BookingServicesAPI - HTTPRequest - POST /services/ - 201 - 34ms
+2025-08-25T15:45:54.%fZ [INFO] BookingServicesAPI - DB: service created - id=503 name=string
+2025-08-25T15:45:54.%fZ [INFO] BookingServicesAPI - Service created - id=503 name=string
+2025-08-25T15:45:54.%fZ [INFO] BookingServicesAPI - HTTPRequest - POST /services/ - 201 - 14ms
+2025-08-25T15:46:11.%fZ [INFO] BookingServicesAPI - DB: service created - id=504 name=jesus
+2025-08-25T15:46:11.%fZ [INFO] BookingServicesAPI - Service created - id=504 name=jesus
+2025-08-25T15:46:11.%fZ [INFO] BookingServicesAPI - HTTPRequest - POST /services/ - 201 - 20ms
+2025-08-25T15:46:14.%fZ [ERROR] BookingServicesAPI - APIError - Unhandled exception - DELETE /users/100 - 3ms
+Traceback (most recent call last):
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1938, in _exec_single_context
+    self.dialect.do_executemany(
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/engine/default.py", line 919, in do_executemany
+    cursor.executemany(statement, parameters)
+sqlite3.IntegrityError: NOT NULL constraint failed: bookings.user_id
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/mobcoder/projects/others/codebases/BookingServices/main.py", line 42, in log_requests
+    response = await call_next(request)
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/starlette/middleware/base.py", line 84, in call_next
+    raise app_exc
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/starlette/middleware/base.py", line 70, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/starlette/middleware/cors.py", line 91, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/starlette/middleware/cors.py", line 146, in simple_response
+    await self.app(scope, receive, send)
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 79, in __call__
+    raise exc
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 68, in __call__
+    await self.app(scope, receive, sender)
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 20, in __call__
+    raise e
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 17, in __call__
+    await self.app(scope, receive, send)
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/starlette/routing.py", line 718, in __call__
+    await route.handle(scope, receive, send)
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/starlette/routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/starlette/routing.py", line 66, in app
+    response = await func(request)
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/fastapi/routing.py", line 274, in app
+    raw_response = await run_endpoint_function(
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/fastapi/routing.py", line 191, in run_endpoint_function
+    return await dependant.call(**values)
+  File "/home/mobcoder/projects/others/codebases/BookingServices/main.py", line 134, in delete_user
+    success = await user_crud.delete_user(db=db, user_id=user_id)
+  File "/home/mobcoder/projects/others/codebases/BookingServices/crud/user_crud.py", line 63, in delete_user
+    db.commit()
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 1969, in commit
+    trans.commit(_to_root=True)
+  File "<string>", line 2, in commit
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/orm/state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 1256, in commit
+    self._prepare_impl()
+  File "<string>", line 2, in _prepare_impl
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/orm/state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 1231, in _prepare_impl
+    self.session.flush()
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 4312, in flush
+    self._flush(objects)
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 4447, in _flush
+    with util.safe_reraise():
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/util/langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 4408, in _flush
+    flush_context.execute()
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/orm/unitofwork.py", line 466, in execute
+    rec.execute(self)
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/orm/unitofwork.py", line 642, in execute
+    util.preloaded.orm_persistence.save_obj(
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/orm/persistence.py", line 85, in save_obj
+    _emit_update_statements(
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/orm/persistence.py", line 909, in _emit_update_statements
+    c = connection.execute(
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1416, in execute
+    return meth(
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/sql/elements.py", line 516, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1639, in _execute_clauseelement
+    ret = self._execute_context(
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1848, in _execute_context
+    return self._exec_single_context(
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1988, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 2343, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1938, in _exec_single_context
+    self.dialect.do_executemany(
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/engine/default.py", line 919, in do_executemany
+    cursor.executemany(statement, parameters)
+sqlalchemy.exc.IntegrityError: (sqlite3.IntegrityError) NOT NULL constraint failed: bookings.user_id
+[SQL: UPDATE bookings SET user_id=?, updated_at=CURRENT_TIMESTAMP WHERE bookings.id = ?]
+[parameters: [(None, 267), (None, 1274), (None, 1311), (None, 2906), (None, 3820), (None, 4990)]]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2025-08-25T15:46:15.%fZ [ERROR] BookingServicesAPI - APIError - Unhandled exception - DELETE /users/100 - 4ms
+Traceback (most recent call last):
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1938, in _exec_single_context
+    self.dialect.do_executemany(
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/engine/default.py", line 919, in do_executemany
+    cursor.executemany(statement, parameters)
+sqlite3.IntegrityError: NOT NULL constraint failed: bookings.user_id
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/mobcoder/projects/others/codebases/BookingServices/main.py", line 42, in log_requests
+    response = await call_next(request)
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/starlette/middleware/base.py", line 84, in call_next
+    raise app_exc
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/starlette/middleware/base.py", line 70, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/starlette/middleware/cors.py", line 91, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/starlette/middleware/cors.py", line 146, in simple_response
+    await self.app(scope, receive, send)
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 79, in __call__
+    raise exc
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 68, in __call__
+    await self.app(scope, receive, sender)
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 20, in __call__
+    raise e
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 17, in __call__
+    await self.app(scope, receive, send)
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/starlette/routing.py", line 718, in __call__
+    await route.handle(scope, receive, send)
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/starlette/routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/starlette/routing.py", line 66, in app
+    response = await func(request)
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/fastapi/routing.py", line 274, in app
+    raw_response = await run_endpoint_function(
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/fastapi/routing.py", line 191, in run_endpoint_function
+    return await dependant.call(**values)
+  File "/home/mobcoder/projects/others/codebases/BookingServices/main.py", line 134, in delete_user
+    success = await user_crud.delete_user(db=db, user_id=user_id)
+  File "/home/mobcoder/projects/others/codebases/BookingServices/crud/user_crud.py", line 63, in delete_user
+    db.commit()
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 1969, in commit
+    trans.commit(_to_root=True)
+  File "<string>", line 2, in commit
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/orm/state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 1256, in commit
+    self._prepare_impl()
+  File "<string>", line 2, in _prepare_impl
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/orm/state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 1231, in _prepare_impl
+    self.session.flush()
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 4312, in flush
+    self._flush(objects)
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 4447, in _flush
+    with util.safe_reraise():
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/util/langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 4408, in _flush
+    flush_context.execute()
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/orm/unitofwork.py", line 466, in execute
+    rec.execute(self)
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/orm/unitofwork.py", line 642, in execute
+    util.preloaded.orm_persistence.save_obj(
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/orm/persistence.py", line 85, in save_obj
+    _emit_update_statements(
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/orm/persistence.py", line 909, in _emit_update_statements
+    c = connection.execute(
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1416, in execute
+    return meth(
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/sql/elements.py", line 516, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1639, in _execute_clauseelement
+    ret = self._execute_context(
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1848, in _execute_context
+    return self._exec_single_context(
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1988, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 2343, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1938, in _exec_single_context
+    self.dialect.do_executemany(
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/engine/default.py", line 919, in do_executemany
+    cursor.executemany(statement, parameters)
+sqlalchemy.exc.IntegrityError: (sqlite3.IntegrityError) NOT NULL constraint failed: bookings.user_id
+[SQL: UPDATE bookings SET user_id=?, updated_at=CURRENT_TIMESTAMP WHERE bookings.id = ?]
+[parameters: [(None, 267), (None, 1274), (None, 1311), (None, 2906), (None, 3820), (None, 4990)]]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2025-08-25T15:46:43.%fZ [ERROR] BookingServicesAPI - APIError - Unhandled exception - DELETE /users/21 - 3ms
+Traceback (most recent call last):
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1938, in _exec_single_context
+    self.dialect.do_executemany(
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/engine/default.py", line 919, in do_executemany
+    cursor.executemany(statement, parameters)
+sqlite3.IntegrityError: NOT NULL constraint failed: bookings.user_id
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/mobcoder/projects/others/codebases/BookingServices/main.py", line 42, in log_requests
+    response = await call_next(request)
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/starlette/middleware/base.py", line 84, in call_next
+    raise app_exc
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/starlette/middleware/base.py", line 70, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/starlette/middleware/cors.py", line 91, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/starlette/middleware/cors.py", line 146, in simple_response
+    await self.app(scope, receive, send)
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 79, in __call__
+    raise exc
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 68, in __call__
+    await self.app(scope, receive, sender)
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 20, in __call__
+    raise e
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 17, in __call__
+    await self.app(scope, receive, send)
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/starlette/routing.py", line 718, in __call__
+    await route.handle(scope, receive, send)
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/starlette/routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/starlette/routing.py", line 66, in app
+    response = await func(request)
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/fastapi/routing.py", line 274, in app
+    raw_response = await run_endpoint_function(
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/fastapi/routing.py", line 191, in run_endpoint_function
+    return await dependant.call(**values)
+  File "/home/mobcoder/projects/others/codebases/BookingServices/main.py", line 134, in delete_user
+    success = await user_crud.delete_user(db=db, user_id=user_id)
+  File "/home/mobcoder/projects/others/codebases/BookingServices/crud/user_crud.py", line 63, in delete_user
+    db.commit()
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 1969, in commit
+    trans.commit(_to_root=True)
+  File "<string>", line 2, in commit
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/orm/state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 1256, in commit
+    self._prepare_impl()
+  File "<string>", line 2, in _prepare_impl
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/orm/state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 1231, in _prepare_impl
+    self.session.flush()
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 4312, in flush
+    self._flush(objects)
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 4447, in _flush
+    with util.safe_reraise():
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/util/langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 4408, in _flush
+    flush_context.execute()
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/orm/unitofwork.py", line 466, in execute
+    rec.execute(self)
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/orm/unitofwork.py", line 642, in execute
+    util.preloaded.orm_persistence.save_obj(
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/orm/persistence.py", line 85, in save_obj
+    _emit_update_statements(
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/orm/persistence.py", line 909, in _emit_update_statements
+    c = connection.execute(
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1416, in execute
+    return meth(
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/sql/elements.py", line 516, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1639, in _execute_clauseelement
+    ret = self._execute_context(
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1848, in _execute_context
+    return self._exec_single_context(
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1988, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 2343, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1938, in _exec_single_context
+    self.dialect.do_executemany(
+  File "/home/mobcoder/.local/lib/python3.10/site-packages/sqlalchemy/engine/default.py", line 919, in do_executemany
+    cursor.executemany(statement, parameters)
+sqlalchemy.exc.IntegrityError: (sqlite3.IntegrityError) NOT NULL constraint failed: bookings.user_id
+[SQL: UPDATE bookings SET user_id=?, updated_at=CURRENT_TIMESTAMP WHERE bookings.id = ?]
+[parameters: [(None, 317), (None, 1803), (None, 1885), (None, 2700), (None, 3024), (None, 4025), (None, 4326), (None, 4669)]]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2025-08-25T15:46:53.%fZ [INFO] BookingServicesAPI - DB: user updated - id=999
+2025-08-25T15:46:53.%fZ [INFO] BookingServicesAPI - User updated - id=999
+2025-08-25T15:46:53.%fZ [INFO] BookingServicesAPI - HTTPRequest - PUT /users/999 - 200 - 3ms
+2025-08-25T15:47:00.%fZ [ERROR] BookingServicesAPI - LogicError - User not found for update - id=1001
+2025-08-25T15:47:00.%fZ [INFO] BookingServicesAPI - HTTPRequest - PUT /users/1001 - 404 - 2ms
+2025-08-25T15:47:12.%fZ [ERROR] BookingServicesAPI - LogicError - User not found for update - id=1001
+2025-08-25T15:47:12.%fZ [INFO] BookingServicesAPI - HTTPRequest - PUT /users/1001 - 404 - 2ms
+2025-08-25T15:47:13.%fZ [ERROR] BookingServicesAPI - LogicError - User not found for update - id=1001
+2025-08-25T15:47:13.%fZ [INFO] BookingServicesAPI - HTTPRequest - PUT /users/1001 - 404 - 2ms
+2025-08-25T15:47:18.%fZ [ERROR] BookingServicesAPI - LogicError - User not found for update - id=1001
+2025-08-25T15:47:18.%fZ [INFO] BookingServicesAPI - HTTPRequest - PUT /users/1001 - 404 - 2ms
+2025-08-25T15:47:19.%fZ [ERROR] BookingServicesAPI - LogicError - User not found for update - id=1001
+2025-08-25T15:47:19.%fZ [INFO] BookingServicesAPI - HTTPRequest - PUT /users/1001 - 404 - 2ms
+2025-08-25T15:47:24.%fZ [ERROR] BookingServicesAPI - LogicError - User not found for update - id=1001
+2025-08-25T15:47:24.%fZ [INFO] BookingServicesAPI - HTTPRequest - PUT /users/1001 - 404 - 2ms
+2025-08-25T15:47:25.%fZ [ERROR] BookingServicesAPI - LogicError - User not found for update - id=1001
+2025-08-25T15:47:25.%fZ [INFO] BookingServicesAPI - HTTPRequest - PUT /users/1001 - 404 - 2ms
+2025-08-25T15:47:26.%fZ [ERROR] BookingServicesAPI - LogicError - User not found for update - id=1001
+2025-08-25T15:47:26.%fZ [INFO] BookingServicesAPI - HTTPRequest - PUT /users/1001 - 404 - 2ms
+2025-08-25T15:47:26.%fZ [ERROR] BookingServicesAPI - LogicError - User not found for update - id=1001
+2025-08-25T15:47:26.%fZ [INFO] BookingServicesAPI - HTTPRequest - PUT /users/1001 - 404 - 2ms
+2025-08-25T15:47:27.%fZ [ERROR] BookingServicesAPI - LogicError - User not found for update - id=1001
+2025-08-25T15:47:27.%fZ [INFO] BookingServicesAPI - HTTPRequest - PUT /users/1001 - 404 - 2ms
+2025-08-25T15:47:28.%fZ [ERROR] BookingServicesAPI - LogicError - User not found for update - id=1001
+2025-08-25T15:47:28.%fZ [INFO] BookingServicesAPI - HTTPRequest - PUT /users/1001 - 404 - 2ms
+2025-08-25T15:47:28.%fZ [ERROR] BookingServicesAPI - LogicError - User not found for update - id=1001
+2025-08-25T15:47:28.%fZ [INFO] BookingServicesAPI - HTTPRequest - PUT /users/1001 - 404 - 2ms
+2025-08-25T15:47:29.%fZ [ERROR] BookingServicesAPI - LogicError - User not found for update - id=1001
+2025-08-25T15:47:29.%fZ [INFO] BookingServicesAPI - HTTPRequest - PUT /users/1001 - 404 - 3ms
+2025-08-25T15:47:29.%fZ [ERROR] BookingServicesAPI - LogicError - User not found for update - id=1001
+2025-08-25T15:47:29.%fZ [INFO] BookingServicesAPI - HTTPRequest - PUT /users/1001 - 404 - 4ms
+2025-08-25T15:47:30.%fZ [ERROR] BookingServicesAPI - LogicError - User not found for update - id=1001
+2025-08-25T15:47:30.%fZ [INFO] BookingServicesAPI - HTTPRequest - PUT /users/1001 - 404 - 2ms
+2025-08-25T15:47:30.%fZ [ERROR] BookingServicesAPI - LogicError - User not found for update - id=1001
+2025-08-25T15:47:30.%fZ [INFO] BookingServicesAPI - HTTPRequest - PUT /users/1001 - 404 - 2ms
+2025-08-25T15:47:39.%fZ [INFO] BookingServicesAPI - DB: user updated - id=999
+2025-08-25T15:47:39.%fZ [INFO] BookingServicesAPI - User updated - id=999
+2025-08-25T15:47:39.%fZ [INFO] BookingServicesAPI - HTTPRequest - PUT /users/999 - 200 - 3ms
+2025-08-25T15:47:42.%fZ [INFO] BookingServicesAPI - DB: user updated - id=999
+2025-08-25T15:47:42.%fZ [INFO] BookingServicesAPI - User updated - id=999
+2025-08-25T15:47:42.%fZ [INFO] BookingServicesAPI - HTTPRequest - PUT /users/999 - 200 - 3ms
+2025-08-25T15:48:04.%fZ [ERROR] BookingServicesAPI - LogicError - User not found - id=1167
+2025-08-25T15:48:04.%fZ [INFO] BookingServicesAPI - HTTPRequest - GET /users/1167 - 404 - 2ms
+2025-08-25T15:48:08.%fZ [ERROR] BookingServicesAPI - LogicError - User not found - id=1167
+2025-08-25T15:48:08.%fZ [INFO] BookingServicesAPI - HTTPRequest - GET /users/1167 - 404 - 2ms
+2025-08-25T15:48:14.%fZ [ERROR] BookingServicesAPI - LogicError - User not found - id=1167
+2025-08-25T15:48:14.%fZ [INFO] BookingServicesAPI - HTTPRequest - GET /users/1167 - 404 - 2ms
+2025-08-25T15:48:17.%fZ [ERROR] BookingServicesAPI - LogicError - User not found - id=1112
+2025-08-25T15:48:17.%fZ [INFO] BookingServicesAPI - HTTPRequest - GET /users/1112 - 404 - 3ms
+2025-08-25T15:48:22.%fZ [ERROR] BookingServicesAPI - LogicError - User not found - id=1145
+2025-08-25T15:48:22.%fZ [INFO] BookingServicesAPI - HTTPRequest - GET /users/1145 - 404 - 2ms
+2025-08-25T15:48:27.%fZ [ERROR] BookingServicesAPI - LogicError - User not found - id=1121
+2025-08-25T15:48:27.%fZ [INFO] BookingServicesAPI - HTTPRequest - GET /users/1121 - 404 - 2ms
+2025-08-25T15:48:37.%fZ [INFO] BookingServicesAPI - HTTPRequest - GET /users/1000 - 200 - 1ms
+2025-08-25T15:49:06.%fZ [ERROR] BookingServicesAPI - LogicError - User not found - id=10001
+2025-08-25T15:49:06.%fZ [INFO] BookingServicesAPI - HTTPRequest - GET /users/10001 - 404 - 2ms
+2025-08-25T15:49:12.%fZ [ERROR] BookingServicesAPI - LogicError - User not found - id=10001
+2025-08-25T15:49:12.%fZ [INFO] BookingServicesAPI - HTTPRequest - GET /users/10001 - 404 - 2ms
+2025-08-25T18:26:25.%fZ [INFO] BookingServicesAPI - Application startup initiated
+2025-08-25T18:26:25.%fZ [INFO] BookingServicesAPI - DataGen: starting
+2025-08-25T18:26:25.%fZ [INFO] BookingServicesAPI - DataGen: existing data detected, skipping
+2025-08-25T18:26:25.%fZ [INFO] BookingServicesAPI - Application startup completed
+2025-08-25T18:27:40.%fZ [INFO] BookingServicesAPI - Application startup initiated
+2025-08-25T18:27:40.%fZ [INFO] BookingServicesAPI - DataGen: starting
+2025-08-25T18:27:40.%fZ [INFO] BookingServicesAPI - DataGen: existing data detected, skipping
+2025-08-25T18:27:40.%fZ [INFO] BookingServicesAPI - Application startup completed
+2025-08-25T18:36:17.%fZ [INFO] BookingServicesAPI - Application startup initiated
+2025-08-25T18:36:17.%fZ [INFO] BookingServicesAPI - DataGen: starting
+2025-08-25T18:36:17.%fZ [INFO] BookingServicesAPI - DataGen: existing data detected, skipping
+2025-08-25T18:36:17.%fZ [INFO] BookingServicesAPI - Application startup completed
+2025-08-25T18:39:25.%fZ [INFO] BookingServicesAPI - Application startup initiated
+2025-08-25T18:39:25.%fZ [INFO] BookingServicesAPI - DataGen: starting
+2025-08-25T18:39:25.%fZ [INFO] BookingServicesAPI - DataGen: existing data detected, skipping
+2025-08-25T18:39:25.%fZ [INFO] BookingServicesAPI - Application startup completed
+2025-08-25T18:39:36.%fZ [INFO] BookingServicesAPI - Application startup initiated
+2025-08-25T18:39:36.%fZ [INFO] BookingServicesAPI - DataGen: starting
+2025-08-25T18:39:36.%fZ [INFO] BookingServicesAPI - DataGen: existing data detected, skipping
+2025-08-25T18:39:36.%fZ [INFO] BookingServicesAPI - Application startup completed
+2025-08-25T18:39:40.%fZ [INFO] BookingServicesAPI - Application startup initiated
+2025-08-25T18:39:40.%fZ [INFO] BookingServicesAPI - DataGen: starting
+2025-08-25T18:39:40.%fZ [INFO] BookingServicesAPI - DataGen: existing data detected, skipping
+2025-08-25T18:39:40.%fZ [INFO] BookingServicesAPI - Application startup completed
+2025-08-25T18:39:50.%fZ [INFO] BookingServicesAPI - Application startup initiated
+2025-08-25T18:39:50.%fZ [INFO] BookingServicesAPI - DataGen: starting
+2025-08-25T18:39:50.%fZ [INFO] BookingServicesAPI - DataGen: existing data detected, skipping
+2025-08-25T18:39:50.%fZ [INFO] BookingServicesAPI - Application startup completed
+2025-08-25T18:39:59.%fZ [INFO] BookingServicesAPI - Application startup initiated
+2025-08-25T18:39:59.%fZ [INFO] BookingServicesAPI - DataGen: starting
+2025-08-25T18:39:59.%fZ [INFO] BookingServicesAPI - DataGen: existing data detected, skipping
+2025-08-25T18:39:59.%fZ [INFO] BookingServicesAPI - Application startup completed
+2025-08-25T18:40:55.%fZ [INFO] BookingServicesAPI - Application startup initiated
+2025-08-25T18:40:55.%fZ [INFO] BookingServicesAPI - DataGen: starting
+2025-08-25T18:40:55.%fZ [INFO] BookingServicesAPI - DataGen: existing data detected, skipping
+2025-08-25T18:40:55.%fZ [INFO] BookingServicesAPI - Application startup completed
+2025-08-25T18:42:56.%fZ [INFO] BookingServicesAPI - Application startup initiated
+2025-08-25T18:42:56.%fZ [INFO] BookingServicesAPI - DataGen: starting
+2025-08-25T18:42:56.%fZ [INFO] BookingServicesAPI - DataGen: existing data detected, skipping
+2025-08-25T18:42:56.%fZ [INFO] BookingServicesAPI - Application startup completed
+2025-08-25T18:44:46.%fZ [INFO] BookingServicesAPI - Application startup initiated
+2025-08-25T18:44:46.%fZ [INFO] BookingServicesAPI - DataGen: starting
+2025-08-25T18:44:46.%fZ [INFO] BookingServicesAPI - DataGen: existing data detected, skipping
+2025-08-25T18:44:46.%fZ [INFO] BookingServicesAPI - Application startup completed
+2025-08-25T18:44:51.%fZ [INFO] BookingServicesAPI - Application startup initiated
+2025-08-25T18:44:51.%fZ [INFO] BookingServicesAPI - DataGen: starting
+2025-08-25T18:44:51.%fZ [INFO] BookingServicesAPI - DataGen: existing data detected, skipping
+2025-08-25T18:44:51.%fZ [INFO] BookingServicesAPI - Application startup completed
