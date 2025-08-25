@@ -10,7 +10,7 @@ def configure_logging() -> logging.Logger:
 	"""Configure root logger for the Booking Services API.
 
 	- Logs to console and a rotating file (prod_logs.log)
-	- Uses a structured, single-line formatter with ISO timestamps
+	- Uses a structured, single-line formatter with ISO timestamps and file information
 	"""
 	logger = logging.getLogger("BookingServicesAPI")
 	if logger.handlers:
@@ -23,7 +23,7 @@ def configure_logging() -> logging.Logger:
 	LOG_FILE_PATH.parent.mkdir(parents=True, exist_ok=True)
 
 	formatter = logging.Formatter(
-		fmt="%(asctime)s [%(levelname)s] %(name)s - %(message)s",
+		fmt="%(asctime)s [%(levelname)s] %(name)s - %(filename)s:%(lineno)d - %(message)s",
 		datefmt="%Y-%m-%dT%H:%M:%S.%fZ",
 	)
 
